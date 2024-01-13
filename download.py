@@ -7,6 +7,19 @@ from PIL import Image #importar imagen o gif
 
 #Función para descargar los videos al seleccionar el boton
 def accion():
+
+    #ver ruta actual
+    ruta_actual = os.getcwd()
+
+    #verificar que no exista
+    if not os.path.exists(ruta_actual + "/descarga"):
+        os.makedirs(ruta_actual + "/descarga")
+
+    #obtener ruta de destino
+    ruta_destino= ruta_actual + "/descarga"
+
+    done  = Label(root, text="Descargando...." , fg="blue")
+    done.grid(row=5, column=1, columnspan=2, sticky="we")
     #loading= Image.open("loading.gif")
     #framesgif = loading.n_frames
     #loading= loading.thumbnail((60,60), Image.Resampling.LANCZOS)
@@ -33,7 +46,7 @@ def accion():
     descarga = video.streams.get_highest_resolution() #descargar video en la máxima resolución
 
     try: 
-        descarga.download('.') #descargar
+        descarga.download(ruta_destino) #descargar
     except:
         error = Label(root, text="Error al decargar video" , fg="red")
         error.grid(row=5, column=1, columnspan=2, sticky="we")
@@ -45,6 +58,16 @@ def accion():
     
 
 def mp3():
+    #ver ruta actual
+    ruta_actual = os.getcwd()
+
+    #verificar que no exista
+    if not os.path.exists(ruta_actual + "/descarga"):
+        os.makedirs(ruta_actual + "/descarga")
+
+    #obtener ruta de destino
+    ruta_destino= ruta_actual + "/descarga"
+        
     done  = Label(root, text="Descargando...." , fg="blue")
     done.grid(row=5, column=1, columnspan=2, sticky="we")
     enlace = videos.get()
@@ -60,7 +83,7 @@ def mp3():
     descarga = musica.streams.filter(only_audio = True).first()
     
     try:
-        downloadfile= descarga.download()
+        downloadfile= descarga.download(ruta_destino)
     except:
         error = Label(root, text="Error al decargar musica", fg="red")
         error.grid(row=5, column=1, columnspan=2, sticky="we")
