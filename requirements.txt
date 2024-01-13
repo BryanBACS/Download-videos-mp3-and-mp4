@@ -1,0 +1,4 @@
+pytube #descargar videos de youtube from pytube import YouTube
+tkinter #esto es para las ventanas o visualizaciones
+pyinstaller #para transformar a .exe
+pillow #para cargar la imagen

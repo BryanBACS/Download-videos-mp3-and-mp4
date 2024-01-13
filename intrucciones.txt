@@ -1,0 +1,14 @@
+----download videos youtube----
+para descargar en youtube hice uso de pytube 
+
+--visualization----
+y para la visualización hice uso de tkinder con root = tk y luego fui agregando cosas
+
+
+----pyinstaller .py to .exe------ 
+ahora para transformar a .exe hice uso de pyinstaller
+para ello se agrega pip install pyinstaller en el .venv
+y en la misma linea de comandos se agrega esto: pyinstaller --onefile --noconsole download.py
+que se refiere que cree un archivo sin consola y el nombre del archivo(download.py)
+
+esto lo que hara es crear dos carpetas build y dist. Dentro de dist esta el .exe
